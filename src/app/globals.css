@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+:root {
+  --bone: #f4f1eb;
+  --bone-deep: #e8e4dc;
+  --stone: #d4cfc4;
+  --stone-muted: #b8b0a4;
+  --charcoal: #2d2b28;
+  --charcoal-soft: #4a4640;
+  --muted: #6b6560;
+  --taupe-line: rgba(45, 43, 40, 0.12);
+  --surface-dark: #2a2825;
+  --surface-ink: #1c1b19;
+  --surface-elevated: #252320;
+  /* Muted olive — structural / legacy accent */
+  --accent: #3d4f46;
+  --accent-hover: #324038;
+  /* High-visibility CTA (coral — not Edge orange; distinct Meshimo) */
+  --accent-cta:#c45c3e;
+  --accent-cta-hover: #a84d34;
+  /* Secondary — tags, spine, diagrams */
+  --accent-secondary: #2f6f6b;
+  --accent-secondary-muted: rgba(47, 111, 107, 0.2);
+  --ring: rgba(196, 92, 62, 0.45);
+}
+
+@theme inline {
+  --color-bone: var(--bone);
+  --color-bone-deep: var(--bone-deep);
+  --color-stone: var(--stone);
+  --color-stone-muted: var(--stone-muted);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-muted: var(--muted);
+  --color-taupe-line: var(--taupe-line);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-ink: var(--surface-ink);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-cta: var(--accent-cta);
+  --color-accent-cta-hover: var(--accent-cta-hover);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary-muted: var(--accent-secondary-muted);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --text-hero: clamp(2.75rem, 6vw + 1rem, 4.5rem);
+  --text-mega: clamp(3.25rem, 8vw + 0.5rem, 6.5rem);
+  --text-display: clamp(2.25rem, 3.5vw + 1rem, 3.25rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bone);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+}
+
+/* subtle grain */
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-cta);
+  outline-offset: 2px;
+}
+
+/* Dark band overlapping previous section (Edge-like lift) */
+.section-ink-lift {
+  margin-top: -3rem;
+  padding-top: 4.5rem;
+  border-radius: 2.5rem 2.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .section-ink-lift {
+    margin-top: -4rem;
+    padding-top: 5.5rem;
+    border-radius: 3rem 3rem 0 0;
+  }
+}
+
+@keyframes meshimo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-meshimo-float {
+  animation: meshimo-float 14s ease-in-out infinite;
+}
+
+@keyframes meshimo-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-meshimo-marquee {
+  animation: meshimo-marquee 48s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-meshimo-float,
+  .animate-meshimo-marquee,
+  .animate-meshimo-watermark-drift,
+  .animate-terminal-cursor {
+    animation: none;
+  }
+}
+
+@keyframes meshimo-terminal-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-terminal-cursor {
+  animation: meshimo-terminal-cursor 1s step-end infinite;
+}
+
+/* Hero background mark — gentle drift, stays subordinate to content */
+@keyframes meshimo-watermark-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+  50% {
+    transform: translate3d(-14px, 12px, 0) rotate(0.75deg);
+  }
+}
+
+.animate-meshimo-watermark-drift {
+  animation: meshimo-watermark-drift 24s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+/* Display headlines (Bebas Neue via layout variable) */
+.font-display {
+  font-family: var(--font-display-bebas), var(--font-outfit), system-ui, sans-serif;
+  letter-spacing: 0.03em;
+}

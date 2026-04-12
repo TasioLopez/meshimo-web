@@ -1,0 +1,43 @@
+import Link from "next/link";
+import { MeshimoLogoMark } from "@/components/branding/MeshimoLogo";
+import { Container } from "./Container";
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-taupe-line bg-surface-ink text-bone">
+      <Container className="flex flex-col gap-10 py-14 md:flex-row md:items-start md:justify-between">
+        <div className="max-w-md space-y-4">
+          <Link href="/" className="inline-flex items-center gap-3 outline-offset-4">
+            <MeshimoLogoMark
+              size="lg"
+              decorative
+              className="max-h-12 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]"
+            />
+            <span className="font-display text-2xl tracking-wide text-bone">Meshimo</span>
+          </Link>
+          <p className="text-sm leading-relaxed text-bone/75">
+            Meshimo delivers technical execution for digital experiences, custom software,
+            AI-enabled workflows, and integrations, from first release through iteration.
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 text-sm text-bone/80">
+          <Link href="#capabilities" className="transition hover:text-accent-cta">
+            Capabilities
+          </Link>
+          <Link href="#process" className="transition hover:text-accent-cta">
+            Process
+          </Link>
+          <Link href="#contact" className="transition hover:text-accent-cta">
+            Contact
+          </Link>
+        </div>
+      </Container>
+      <div className="border-t border-white/10">
+        <Container className="flex flex-col gap-2 py-6 text-xs text-bone/45 sm:flex-row sm:justify-between">
+          <span>Meshimo. All rights reserved.</span>
+          <span>Built with Next.js</span>
+        </Container>
+      </div>
+    </footer>
+  );
+}
