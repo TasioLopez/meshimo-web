@@ -49,12 +49,6 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${bebas.variable} h-full scroll-smooth antialiased`}
     >
-      <head>
-        <link
-          rel="stylesheet"
-          href="/vendor/silktide/silktide-consent-manager.css"
-        />
-      </head>
       <body className="min-h-full flex flex-col font-sans text-charcoal">
         <Script id="consent-defaults" strategy="beforeInteractive">
           {getConsentDefaultInlineScript()}

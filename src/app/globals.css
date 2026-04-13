@@ -1,3 +1,5 @@
+/* Silktide vendor first (@import order); Meshimo overrides at end of this file. */
+@import url("../../public/vendor/silktide/silktide-consent-manager.css");
 @import "tailwindcss";
 
 :root {
@@ -170,21 +172,21 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   Silktide CMP — full Meshimo theme (replaces vendor black / yellow defaults)
+   Silktide CMP — Meshimo theme (light surfaces like the page, coral CTAs)
    -------------------------------------------------------------------------- */
 #stcm-wrapper {
   --fontFamily: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --primaryColor: var(--accent-cta);
-  --backgroundColor: var(--surface-elevated);
-  --textColor: var(--bone);
-  --backdropBackgroundColor: rgba(28, 27, 25, 0.62);
+  /* Used for primary button text + modal thumb; keep light for contrast on coral */
+  --backgroundColor: var(--bone);
+  --textColor: var(--charcoal);
+  --backdropBackgroundColor: rgba(45, 43, 40, 0.45);
   --backdropBackgroundBlur: 10px;
-  /* Floating reopen button: coral with bone cookie glyph */
   --iconColor: var(--accent-cta);
   --iconBackgroundColor: var(--bone);
   --boxShadow:
-    0 28px 80px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(244, 241, 235, 0.09);
+    0 28px 80px rgba(45, 43, 40, 0.18),
+    0 0 0 1px var(--taupe-line);
 }
 
 /* Silktide marketing (banner logo + preferences footer link) */
@@ -193,15 +195,97 @@ body::before {
   display: none !important;
 }
 
+/* ----- Banner: center copy + actions; match warm page chrome ----- */
+#stcm-banner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  background-color: var(--bone-deep) !important;
+  color: var(--charcoal) !important;
+  border: 1px solid var(--taupe-line) !important;
+}
+
+#stcm-banner p {
+  text-align: center !important;
+  color: var(--charcoal-soft) !important;
+  max-width: 36rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#stcm-banner a {
+  color: var(--accent-cta) !important;
+  background-color: transparent !important;
+}
+
+#stcm-banner a:hover {
+  color: var(--accent-cta-hover) !important;
+}
+
+#stcm-banner .stcm-actions {
+  align-items: center !important;
+  width: 100% !important;
+  margin-top: 1.5rem !important;
+}
+
+@media (min-width: 600px) {
+  #stcm-banner .stcm-actions {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.75rem 1rem !important;
+  }
+}
+
 #stcm-banner .stcm-actions-row {
-  justify-content: flex-start;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+#stcm-banner .stcm-preferences-button {
+  color: var(--accent-secondary) !important;
+}
+
+#stcm-banner .stcm-preferences-button span:hover {
+  color: var(--charcoal) !important;
+}
+
+/* Accept = filled coral; Reject = outline (Silktide marks both as primary) */
+#stcm-banner .stcm-accept-all {
+  background-color: var(--accent-cta) !important;
+  border-color: var(--accent-cta) !important;
+  color: var(--bone) !important;
+}
+
+#stcm-banner .stcm-accept-all:hover {
+  background-color: var(--accent-cta-hover) !important;
+  border-color: var(--accent-cta-hover) !important;
+  color: var(--bone) !important;
+}
+
+#stcm-banner .stcm-reject-all {
+  background-color: transparent !important;
+  border: 2px solid var(--charcoal-soft) !important;
+  color: var(--charcoal) !important;
+}
+
+#stcm-banner .stcm-reject-all:hover {
+  background-color: rgba(45, 43, 40, 0.06) !important;
+  border-color: var(--charcoal) !important;
+  color: var(--charcoal) !important;
 }
 
 #stcm-banner,
 #stcm-modal {
   border-radius: 1rem;
   box-shadow: var(--boxShadow) !important;
-  border: 1px solid rgba(244, 241, 235, 0.1);
+}
+
+#stcm-modal {
+  background-color: var(--bone-deep) !important;
+  color: var(--charcoal) !important;
+  border: 1px solid var(--taupe-line) !important;
 }
 
 #stcm-wrapper .stcm-button {
@@ -213,63 +297,92 @@ body::before {
 #stcm-wrapper .stcm-button-primary:hover {
   background-color: var(--accent-cta-hover);
   border-color: var(--accent-cta-hover);
-  color: var(--bone);
 }
 
-#stcm-wrapper .stcm-button-secondary:hover {
-  background-color: rgba(244, 241, 235, 0.12);
-  color: var(--bone);
-  border-color: rgba(244, 241, 235, 0.35);
+#stcm-modal .stcm-button-primary {
+  background-color: var(--accent-cta) !important;
+  border-color: var(--accent-cta) !important;
+  color: var(--bone) !important;
 }
 
-#stcm-banner .stcm-preferences-button {
-  color: var(--accent-secondary);
+#stcm-modal .stcm-modal-reject-all {
+  background-color: transparent !important;
+  border: 2px solid var(--charcoal-soft) !important;
+  color: var(--charcoal) !important;
 }
 
-#stcm-banner .stcm-preferences-button span:hover {
-  color: var(--bone);
+#stcm-modal .stcm-modal-reject-all:hover {
+  background-color: rgba(45, 43, 40, 0.06) !important;
+  border-color: var(--charcoal) !important;
 }
 
 #stcm-modal h1 {
   font-family: var(--font-display-bebas), var(--font-outfit), system-ui, sans-serif;
   font-weight: 400;
   letter-spacing: 0.04em;
-  color: var(--bone);
+  color: var(--charcoal) !important;
 }
 
 #stcm-modal .stcm-modal-close {
   border-radius: 0.5rem;
-  background: rgba(244, 241, 235, 0.08);
-  color: var(--bone);
+  background: rgba(45, 43, 40, 0.06);
+  color: var(--charcoal);
 }
 
 #stcm-modal .stcm-modal-close svg {
-  fill: var(--bone);
+  fill: var(--charcoal);
 }
 
 #stcm-modal .stcm-modal-close:hover {
-  background: rgba(244, 241, 235, 0.14);
+  background: rgba(45, 43, 40, 0.1);
 }
 
 #stcm-modal p {
-  color: rgba(244, 241, 235, 0.88);
+  color: var(--charcoal-soft) !important;
   opacity: 1;
 }
 
+#stcm-modal a {
+  color: var(--accent-cta) !important;
+}
+
+#stcm-modal a:hover {
+  color: var(--accent-cta-hover) !important;
+}
+
 #stcm-modal legend {
-  color: var(--bone);
+  color: var(--charcoal) !important;
+}
+
+/* Toggles on light panel */
+#stcm-modal .stcm-toggle-track {
+  background: var(--stone-muted) !important;
+}
+
+#stcm-modal .stcm-toggle-thumb {
+  background: var(--bone) !important;
+}
+
+#stcm-modal .stcm-toggle-off,
+#stcm-modal .stcm-toggle-on {
+  color: var(--charcoal) !important;
 }
 
 #stcm-modal .stcm-toggle input:checked + .stcm-toggle-track {
-  background: var(--accent-cta);
+  background: var(--accent-cta) !important;
+}
+
+#stcm-modal .stcm-toggle input:checked ~ .stcm-toggle-off,
+#stcm-modal .stcm-toggle input:checked ~ .stcm-toggle-on {
+  color: var(--bone) !important;
 }
 
 #stcm-modal .stcm-toggle:focus-within {
-  box-shadow: 0 0 0 2px var(--surface-elevated), 0 0 0 4px var(--accent-cta);
+  box-shadow: 0 0 0 2px var(--bone-deep), 0 0 0 4px var(--accent-cta);
 }
 
 #stcm-icon {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(45, 43, 40, 0.25);
 }
 
 #stcm-wrapper a:focus,
@@ -277,7 +390,7 @@ body::before {
 #stcm-wrapper #stcm-modal button:focus,
 #stcm-wrapper #stcm-icon:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--surface-elevated), 0 0 0 4px var(--accent-cta);
+  box-shadow: 0 0 0 2px var(--bone-deep), 0 0 0 4px var(--accent-cta);
   border-radius: 6px;
 }
 
@@ -286,5 +399,5 @@ body::before {
 }
 
 #stcm-modal section::-webkit-scrollbar-thumb {
-  background-color: rgba(244, 241, 235, 0.35);
+  background-color: rgba(45, 43, 40, 0.25);
 }
