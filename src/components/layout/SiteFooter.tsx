@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { MeshimoLogoMark } from "@/components/branding/MeshimoLogo";
+import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
+import en from "@/messages/en.json";
 import { Container } from "./Container";
 
 export function SiteFooter() {
@@ -30,6 +32,13 @@ export function SiteFooter() {
           <Link href="#contact" className="transition hover:text-accent-cta">
             Contact
           </Link>
+          <Link href="/cookie-policy" className="transition hover:text-accent-cta">
+            {en.footer.cookie_policy}
+          </Link>
+          <CookieSettingsButton
+            label={en.footer.cookies}
+            className="text-left transition hover:text-accent-cta"
+          />
         </div>
       </Container>
       <div className="border-t border-white/10">

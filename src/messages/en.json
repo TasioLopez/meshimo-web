@@ -1,0 +1,25 @@
+{
+  "footer": {
+    "cookies": "Cookie settings",
+    "cookie_policy": "Cookie policy"
+  },
+  "cookies": {
+    "prompt_description": "We use cookies to run the site, remember preferences, and—only if you allow—measure how the site is used via Google Analytics and similar tools loaded through Google Tag Manager. Read more in our <a href=\"/cookie-policy\">cookie policy</a>.",
+    "accept_all": "Accept all",
+    "accept_all_a11y": "Accept all cookies",
+    "reject_nonessential": "Reject non-essential",
+    "reject_nonessential_a11y": "Reject non-essential cookies",
+    "preferences": "Preferences",
+    "preferences_a11y": "Open cookie preferences",
+    "preferences_title": "Cookie preferences",
+    "preferences_description": "Choose which cookies we may use. Necessary cookies are always on. Analytics helps us understand traffic; you can change your mind anytime. See the <a href=\"/cookie-policy\">cookie policy</a> for details.",
+    "save": "Save and close",
+    "save_a11y": "Save cookie preferences and close",
+    "credit": "Silktide Consent Manager (MIT)",
+    "credit_a11y": "Learn about Silktide Consent Manager",
+    "necessary_label": "Necessary",
+    "necessary_description": "Required for basic site functionality and security (for example load balancing, session integrity, and fraud prevention where applicable).",
+    "analytics_label": "Analytics",
+    "analytics_description": "Helps us understand how visitors use the site. Enabled only if you opt in; implemented via Google Tag Manager (for example Google Analytics 4) with Consent Mode."
+  }
+}

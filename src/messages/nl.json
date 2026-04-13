@@ -1,0 +1,25 @@
+{
+  "footer": {
+    "cookies": "Cookie-instellingen",
+    "cookie_policy": "Cookiebeleid"
+  },
+  "cookies": {
+    "prompt_description": "We gebruiken cookies om de site te laten werken, voorkeuren te onthouden en—alleen als u toestemming geeft—het gebruik te meten via Google Analytics en vergelijkbare tools die via Google Tag Manager worden geladen. Lees meer in ons <a href=\"/cookie-policy\">cookiebeleid</a>.",
+    "accept_all": "Alles accepteren",
+    "accept_all_a11y": "Alle cookies accepteren",
+    "reject_nonessential": "Niet-noodzakelijke weigeren",
+    "reject_nonessential_a11y": "Niet-noodzakelijke cookies weigeren",
+    "preferences": "Voorkeuren",
+    "preferences_a11y": "Cookievoorkeuren openen",
+    "preferences_title": "Cookievoorkeuren",
+    "preferences_description": "Kies welke cookies we mogen gebruiken. Noodzakelijke cookies staan altijd aan. Analytics helpt ons begrijpen hoe de site wordt gebruikt; u kunt dit later wijzigen. Zie het <a href=\"/cookie-policy\">cookiebeleid</a> voor details.",
+    "save": "Opslaan en sluiten",
+    "save_a11y": "Cookievoorkeuren opslaan en sluiten",
+    "credit": "Silktide Consent Manager (MIT)",
+    "credit_a11y": "Meer over Silktide Consent Manager",
+    "necessary_label": "Noodzakelijk",
+    "necessary_description": "Nodig voor basisfunctionaliteit en beveiliging van de site (bijvoorbeeld belastingverdeling, sessie-integriteit en waar van toepassing fraudepreventie).",
+    "analytics_label": "Analytics",
+    "analytics_description": "Helpt ons te begrijpen hoe bezoekers de site gebruiken. Alleen ingeschakeld na uw toestemming; geïmplementeerd via Google Tag Manager (bijvoorbeeld Google Analytics 4) met Consent Mode."
+  }
+}
