@@ -4,7 +4,7 @@
     "cookie_policy": "Cookie policy"
   },
   "cookies": {
-    "prompt_description": "We use cookies to run the site, remember preferences, and—only if you allow—measure how the site is used via Google Analytics and similar tools loaded through Google Tag Manager. Read more in our <a href=\"/cookie-policy\">cookie policy</a>.",
+    "prompt_description": "<p>We use cookies to run the site, remember preferences, and—only if you allow—measure how the site is used via Google Analytics and similar tools loaded through Google Tag Manager. Read more in our <a href=\"/cookie-policy\">cookie policy</a>.</p>",
     "accept_all": "Accept all",
     "accept_all_a11y": "Accept all cookies",
     "reject_nonessential": "Reject non-essential",

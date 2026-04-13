@@ -4,7 +4,7 @@
     "cookie_policy": "Cookiebeleid"
   },
   "cookies": {
-    "prompt_description": "We gebruiken cookies om de site te laten werken, voorkeuren te onthouden en—alleen als u toestemming geeft—het gebruik te meten via Google Analytics en vergelijkbare tools die via Google Tag Manager worden geladen. Lees meer in ons <a href=\"/cookie-policy\">cookiebeleid</a>.",
+    "prompt_description": "<p>We gebruiken cookies om de site te laten werken, voorkeuren te onthouden en—alleen als u toestemming geeft—het gebruik te meten via Google Analytics en vergelijkbare tools die via Google Tag Manager worden geladen. Lees meer in ons <a href=\"/cookie-policy\">cookiebeleid</a>.</p>",
     "accept_all": "Alles accepteren",
     "accept_all_a11y": "Alle cookies accepteren",
     "reject_nonessential": "Niet-noodzakelijke weigeren",

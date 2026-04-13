@@ -204,6 +204,8 @@ body::before {
   background-color: var(--bone-deep) !important;
   color: var(--charcoal) !important;
   border: 1px solid var(--taupe-line) !important;
+  /* Less bottom padding than top — vendor uses 32px all sides */
+  padding: 1.25rem 1.75rem 0.625rem !important;
 }
 
 #stcm-banner p {
@@ -212,11 +214,21 @@ body::before {
   max-width: 36rem;
   margin-left: auto !important;
   margin-right: auto !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#stcm-banner p:last-of-type {
+  margin-bottom: 0 !important;
 }
 
 #stcm-banner a {
   color: var(--accent-cta) !important;
   background-color: transparent !important;
+}
+
+/* Keep policy link + trailing period on one line (vendor used inline-block on all links) */
+#stcm-banner p a {
+  display: inline !important;
 }
 
 #stcm-banner a:hover {
@@ -226,7 +238,8 @@ body::before {
 #stcm-banner .stcm-actions {
   align-items: center !important;
   width: 100% !important;
-  margin-top: 1.5rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
 }
 
 @media (min-width: 600px) {
@@ -241,10 +254,14 @@ body::before {
 #stcm-banner .stcm-actions-row {
   justify-content: center !important;
   width: 100% !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 #stcm-banner .stcm-preferences-button {
   color: var(--accent-secondary) !important;
+  padding: 0.35rem 0 0 !important;
+  margin-bottom: 0 !important;
 }
 
 #stcm-banner .stcm-preferences-button span:hover {
