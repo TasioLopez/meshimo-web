@@ -35,6 +35,9 @@ export function SiteFooter() {
           <Link href="/terms" className="transition hover:text-accent-cta">
             {en.footer.terms}
           </Link>
+          <Link href="/terms-of-use" className="transition hover:text-accent-cta">
+            {en.footer.website_terms}
+          </Link>
           <Link href="/privacy-policy" className="transition hover:text-accent-cta">
             {en.footer.privacy_policy}
           </Link>

@@ -6,24 +6,24 @@ import { Container } from "@/components/layout/Container";
 import { siteMeta } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Cookie policy | ${siteMeta.title}`,
+  title: `Privacy policy | ${siteMeta.title}`,
   description:
-    "How SOTAB B.V. (Meshimo) uses cookies, local storage, Google Analytics 4, Microsoft Clarity, and consent on meshimo.com.",
+    "How SOTAB B.V. (Meshimo) collects, uses, and protects personal data when you use the website or contact us.",
 };
 
-async function loadCookiePolicyMarkdown(): Promise<string> {
+async function loadPrivacyPolicyMarkdown(): Promise<string> {
   const filePath = path.join(
     process.cwd(),
     "src",
     "content",
     "legal",
-    "cookie-policy.en.md",
+    "privacy-policy.en.md",
   );
   return fs.readFile(filePath, "utf8");
 }
 
-export default async function CookiePolicyPage() {
-  const markdown = await loadCookiePolicyMarkdown();
+export default async function PrivacyPolicyPage() {
+  const markdown = await loadPrivacyPolicyMarkdown();
 
   return (
     <div className="border-b border-taupe-line bg-bone py-16 md:py-24">
