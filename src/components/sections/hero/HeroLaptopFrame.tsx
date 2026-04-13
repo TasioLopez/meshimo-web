@@ -16,7 +16,7 @@ export function HeroLaptopFrame({ children, className }: Props) {
     <div
       className={
         className ??
-        "relative flex w-full max-w-[min(100%,340px)] shrink-0 flex-col items-center sm:max-w-[min(100%,380px)] md:max-w-[min(100%,440px)] lg:max-w-[min(100%,520px)] xl:max-w-[min(100%,560px)]"
+        "relative flex w-full max-w-[min(440px,calc(100vw-3.5rem))] shrink-0 flex-col items-center md:max-w-[480px] lg:max-w-[560px]"
       }
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-[0.65rem] border border-taupe-line bg-charcoal/5 shadow-[0_28px_70px_-22px_rgba(28,27,25,0.42)] ring-1 ring-charcoal/12">

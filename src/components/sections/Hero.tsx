@@ -19,16 +19,18 @@ import { HeroSlideVisual } from "@/components/sections/hero/HeroSlideVisual";
 
 const ease = easeOutExpo;
 
-/** Max laptop width per breakpoint — keep in sync with `HeroLaptopFrame` and the motion wrapper below. */
-function effectiveLaptopWidth(stageWidth: number) {
-  const cap =
-    stageWidth >= 1280 ? 560 : stageWidth >= 1024 ? 520 : stageWidth >= 768 ? 440 : stageWidth >= 640 ? 380 : 340;
-  return Math.min(cap, Math.max(0, stageWidth - 8));
-}
+/** Tailwind `md` — keep in sync with shuttle behavior vs laptop `md:` widths. */
+const MD_STAGE_PX = 768;
 
-/** Horizontal travel for word/laptop shuttle: never larger than fits inside the stage. */
+/**
+ * Desktop/tablet (md+): original shuttle range (unchanged from launch layout).
+ * Below md: cap travel so the mockup + headline stay inside the stage (vw-safe widths).
+ */
 function shuttleOffsets(stageWidth: number) {
-  const lw = effectiveLaptopWidth(stageWidth);
+  if (stageWidth >= MD_STAGE_PX) {
+    return Math.min(268, Math.max(120, stageWidth * 0.36));
+  }
+  const lw = Math.min(440, Math.max(0, stageWidth - 16));
   const pad = 12;
   const maxTravel = Math.max(0, stageWidth / 2 - lw / 2 - pad);
   const desired = Math.min(268, Math.max(0, stageWidth * 0.36));
@@ -227,7 +229,7 @@ export function Hero() {
           ) : (
             <div
               ref={stageRef}
-              className="relative mt-10 h-[min(240px,48vw)] w-full max-w-full overflow-x-clip sm:h-[min(260px,50vw)] sm:max-w-5xl md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
+              className="relative mt-10 h-[min(280px,52vw)] w-full max-w-5xl md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
               aria-hidden
             >
               <motion.div
@@ -272,7 +274,7 @@ export function Hero() {
               </motion.div>
 
               <motion.div
-                className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-full max-w-[min(100%,340px)] shrink-0 -translate-x-1/2 -translate-y-1/2 sm:max-w-[min(100%,380px)] md:max-w-[min(100%,440px)] lg:max-w-[min(100%,520px)] xl:max-w-[min(100%,560px)]"
+                className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-full max-w-[min(440px,calc(100vw-3.5rem))] shrink-0 -translate-x-1/2 -translate-y-1/2 md:w-[min(90vw,480px)] md:max-w-[480px] lg:w-[min(86vw,540px)] lg:max-w-[560px]"
                 style={{
                   x: laptopX,
                   y: laptopY,
