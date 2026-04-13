@@ -16,7 +16,7 @@ export function HeroLaptopFrame({ children, className }: Props) {
     <div
       className={
         className ??
-        "relative flex w-full max-w-[440px] shrink-0 flex-col items-center md:max-w-[480px] lg:max-w-[560px]"
+        "relative flex w-full max-w-[min(100%,340px)] shrink-0 flex-col items-center sm:max-w-[min(100%,380px)] md:max-w-[min(100%,440px)] lg:max-w-[min(100%,520px)] xl:max-w-[min(100%,560px)]"
       }
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-[0.65rem] border border-taupe-line bg-charcoal/5 shadow-[0_28px_70px_-22px_rgba(28,27,25,0.42)] ring-1 ring-charcoal/12">
@@ -29,11 +29,11 @@ export function HeroLaptopFrame({ children, className }: Props) {
         <div className="absolute inset-x-0 bottom-0 top-7 z-[1] overflow-hidden bg-bone">{children}</div>
       </div>
       <div
-        className="-mt-px h-[10px] w-[104%] max-w-[500px] rounded-b-md border border-taupe-line bg-gradient-to-b from-bone-deep via-stone/90 to-stone shadow-inner lg:max-w-[580px]"
+        className="-mt-px h-[10px] w-full max-w-full rounded-b-md border border-taupe-line bg-gradient-to-b from-bone-deep via-stone/90 to-stone shadow-inner md:w-[104%] md:max-w-[500px] lg:max-w-[580px]"
         aria-hidden
       />
       <div
-        className="-mt-px h-2 w-[112%] max-w-[520px] rounded-b-sm border border-taupe-line/80 bg-bone-deep/90 lg:max-w-[600px]"
+        className="-mt-px h-2 w-full max-w-full rounded-b-sm border border-taupe-line/80 bg-bone-deep/90 md:w-[112%] md:max-w-[520px] lg:max-w-[600px]"
         aria-hidden
       />
     </div>
