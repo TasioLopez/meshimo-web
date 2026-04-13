@@ -203,6 +203,7 @@ export function Hero() {
           <h1 className="sr-only">{siteMeta.title}</h1>
 
           <motion.div
+            className="w-full"
             initial={reduced ? false : "hidden"}
             animate={reduced ? undefined : "show"}
             variants={{
@@ -217,8 +218,17 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
+          <motion.p
+            className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted md:order-4 md:mt-12 md:text-lg"
+            initial={reduced ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ...transition, duration: 0.55, delay: reduced ? 0 : 0.15 }}
+          >
+            {hero.subhead}
+          </motion.p>
+
           {reduced ? (
-            <div className="mt-10 flex w-full max-w-4xl flex-col items-center gap-8 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-12 lg:max-w-6xl lg:gap-16">
+            <div className="mt-8 flex w-full max-w-4xl flex-col items-center gap-8 md:order-2 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-12 lg:max-w-6xl lg:gap-16">
               <p className="w-full max-w-[min(100%,380px)] text-right font-display text-[length:clamp(2.75rem,10vw,4.5rem)] leading-[0.86] tracking-[0.04em] text-charcoal md:pr-2 lg:max-w-[min(100%,540px)] lg:pr-5 lg:text-[length:clamp(4.25rem,min(17vw,34vh),11rem)] lg:leading-[0.78]">
                 {heroRotatingSlides[0]!.word}
               </p>
@@ -229,7 +239,7 @@ export function Hero() {
           ) : (
             <div
               ref={stageRef}
-              className="relative mt-10 h-[min(280px,52vw)] w-full max-w-5xl md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
+              className="relative mt-8 h-[min(280px,52vw)] w-full max-w-5xl md:order-2 md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
               aria-hidden
             >
               <motion.div
@@ -292,7 +302,7 @@ export function Hero() {
             </div>
           )}
 
-          <div className="mt-8 flex justify-center gap-1.5 md:mt-10" aria-hidden>
+          <div className="mt-8 flex justify-center gap-1.5 md:order-3 md:mt-10" aria-hidden>
             {heroRotatingSlides.map((s, i) => (
               <span
                 key={s.id}
@@ -304,17 +314,8 @@ export function Hero() {
             ))}
           </div>
 
-          <motion.p
-            className="mt-10 max-w-xl text-pretty text-base leading-relaxed text-muted md:mt-12 md:text-lg"
-            initial={reduced ? false : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, duration: 0.55, delay: reduced ? 0 : 0.15 }}
-          >
-            {hero.subhead}
-          </motion.p>
-
           <motion.div
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            className="mt-10 flex w-full flex-wrap justify-center gap-4 md:order-5"
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...transition, duration: 0.55, delay: reduced ? 0 : 0.22 }}
