@@ -38,51 +38,51 @@ export const heroRotateIntervalMs = 5600;
 export const whatMeshimoIs = {
   title: "What Meshimo is",
   intro:
-    "Meshimo is the development and systems partner: the team that turns demanding product and operations work into shipped software and digital infrastructure you can run.",
+    "Meshimo is the technical partner behind the build. We design and ship the customer-facing experience, the internal systems behind it, and the logic that makes everything work together.",
   columns: [
     {
-      title: "Execution, not abstraction",
-      body: "When deliverables are code, integrations, data flows, or AI-enabled processes, Meshimo owns the build from discovery through launch and iteration.",
+      title: "Built to be used",
+      body: "We take projects from first scope to live delivery: websites, internal tools, automations, integrations, and AI-supported workflows that need to work in the real world, not just look good in a deck.",
     },
     {
-      title: "Surface and substrate",
-      body: "The same practice designs and ships polished frontends and the backends, automations, and internal platforms that make day-to-day work faster and less fragile.",
+      title: "Frontends with real systems behind them",
+      body: "A good interface is only half the job. We build the workflows, integrations, and internal logic behind it too, so the experience holds up once people start using it.",
     },
     {
-      title: "Long-term fit",
-      body: "Engagements are structured for clarity and ownership: architecture you can extend, handover you can trust, and a build that keeps working after launch.",
+      title: "Made to last past launch",
+      body: "The goal is not a one-off build. It is a clean foundation your team can keep using, extending, and operating with confidence.",
     },
   ],
 };
 
 export const technicalDepth = {
-  title: "Depth beyond deliverables",
+  title: "Why teams work with Meshimo",
   thesis:
-    "Strong technical work shows up in maintainability, clarity, and how well it serves the business, not in novelty for its own sake.",
+    "The value is not just in shipping something that works today. It is in building something your business can actually rely on, improve, and grow with.",
   points: [
     {
       title: "Systems thinking",
-      text: "Interfaces are designed with the workflows, roles, and data they connect to so the product holds up under real use.",
+      text: "We do not treat websites, tools, and workflows as isolated pieces. They are designed around the roles, data, and processes they need to support.",
     },
     {
       title: "Applied AI",
-      text: "Models and agents land where they remove repetition, speed decisions, or orchestrate steps, not as decoration.",
+      text: "AI belongs where it saves time, improves routing, or supports decision-making, not where it simply makes a project sound more modern.",
     },
     {
-      title: "Scale of engagement",
-      text: "The same engagement model can move from a focused workflow to a multi-surface platform when the problem requires it.",
+      title: "Flexible scope, serious execution",
+      text: "Some projects start with one workflow. Others become a broader platform. The delivery model is built to handle both without losing focus.",
     },
     {
       title: "Pragmatic stacks",
-      text: "Technology choices favor operability: observability, versioning, and handover a serious organization can live with.",
+      text: "Technology decisions are made for reliability, maintainability, and speed to value, not to impress other developers.",
     },
     {
-      title: "Design and operations",
-      text: "Creative frontend execution stays tied to operational reality: permissions, edge cases, and how teams actually work.",
+      title: "Design tied to operations",
+      text: "We care about how things look, but also how permissions, edge cases, handoffs, and internal usage affect the build once it goes live.",
     },
     {
       title: "Measured performance",
-      text: "Technical SEO, structured content for answer engines, and performance budgets are implemented as engineering, not afterthoughts.",
+      text: "Speed, structure, and discoverability are built in from the start, not left as cleanup work after launch.",
     },
   ],
 };
@@ -90,24 +90,24 @@ export const technicalDepth = {
 export const outcomes = {
   title: "What clients get",
   subtitle:
-    "Clear ownership, shipped software, and systems you can extend with every release.",
+    "Clean delivery, fewer workarounds, and systems that stay useful after the first release.",
   items: [
-    "Faster delivery of complex UI and system work with fewer handoffs.",
-    "Fewer manual steps through automation and well-scoped AI assistance.",
-    "Tools that connect: CRMs, data stores, dashboards, and customer-facing surfaces aligned.",
-    "Technical foundations that support change: APIs, logging, and structure built for the next release.",
-    "Pages and experiences that load quickly, read clearly to people and machines, and hold up in production.",
-    "Teams that spend less time fighting tools and more time on the work that matters.",
+    "Faster delivery across design, development, and systems work without unnecessary handoffs.",
+    "Less repetitive manual work through automation and carefully scoped AI support.",
+    "Better alignment between websites, internal tools, data, and customer-facing workflows.",
+    "Technical foundations that make future changes easier, not harder.",
+    "Faster, clearer digital experiences that hold up in production.",
+    "More time spent on the work that matters, and less time fighting the setup behind it.",
   ],
 };
 
 export const finalCta = {
-  title: "When the work is technical, Meshimo builds it.",
-  body: "Engagements are scoped for ownership and clarity. If your roadmap includes custom software, serious integrations, or AI-enabled operations, this is a fit.",
+  title: "When the work needs to be built properly, Meshimo is the partner.",
+  body: "Meshimo is a fit for teams that need more than a nice interface: custom software, connected systems, serious integrations, operational automation, or AI applied in a way that is actually useful.",
   fit: [
-    "You want premium digital surfaces and the systems behind them in one coherent build.",
-    "You are ready to collaborate on architecture, tradeoffs, and delivery milestones.",
-    "You value maintainable execution over one-off campaigns or generic templates.",
+    "You want the frontend and the system behind it handled as one build.",
+    "You care about quality, maintainability, and technical decisions that will still make sense a year from now.",
+    "You are looking for a partner that can think with you and execute at production level.",
   ],
   formNote:
     "This form opens your email client with a prefilled message. Replace with an API route when ready.",

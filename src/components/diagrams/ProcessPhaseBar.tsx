@@ -12,11 +12,11 @@ export function ProcessPhaseBar() {
   return (
     <div className="mt-10 rounded-2xl border border-taupe-line bg-bone p-4 md:p-5">
       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted">
-        Illustrative phase emphasis
+        Typical delivery flow
       </p>
       <p className="mt-2 text-xs leading-relaxed text-muted">
-        Actual timelines vary by scope, integrations, and compliance. This bar shows typical
-        relative weighting, not calendar weeks.
+        The balance changes depending on scope, integrations, and technical constraints, but the
+        sequence stays largely the same.
       </p>
       <div className="mt-4 flex h-4 overflow-hidden rounded-full bg-bone-deep">
         {segments.map((s) => (

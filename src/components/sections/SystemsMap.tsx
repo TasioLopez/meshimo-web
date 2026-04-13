@@ -22,12 +22,12 @@ export function SystemsMap() {
           <motion.div variants={fadeUp} transition={transition}>
             <Eyebrow>Connected infrastructure</Eyebrow>
             <h2 className="font-display mt-4 text-[length:var(--text-display)] tracking-wide text-charcoal">
-              Not isolated pages. Linked systems.
+              Not just pages. Working systems.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted">
-              Meshimo connects what customers see with what teams operate: CRMs, data
-              stores, AI-assisted workflows, dashboards, and automations that keep
-              information consistent across surfaces.
+              Meshimo connects the public-facing layer to the operational layer behind it, so
+              websites, tools, data, dashboards, CRMs, and automations work as one connected
+              system instead of a patchwork.
             </p>
           </motion.div>
         </motion.div>

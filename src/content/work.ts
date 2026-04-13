@@ -14,7 +14,7 @@ export const workItems: WorkItem[] = [
     category: "Digital experience",
     types: ["Website", "CMS", "Performance"],
     outcome:
-      "Editorial velocity without layout drift; component library enforced in production.",
+      "A branded website system built for speed, consistency, and easier publishing without design drift.",
     span: "wide",
   },
   {
@@ -23,7 +23,7 @@ export const workItems: WorkItem[] = [
     category: "Custom platform",
     types: ["Internal tool", "Roles", "Audit trail"],
     outcome:
-      "Single source of truth for approvals with traceability and fewer handoffs.",
+      "A cleaner internal workflow with one source of truth, fewer manual handoffs, and better visibility across the process.",
     span: "tall",
   },
   {
@@ -32,7 +32,7 @@ export const workItems: WorkItem[] = [
     category: "Intelligent workflow",
     types: ["AI workflow", "Automation", "Integrations"],
     outcome:
-      "Faster triage with explicit escalation paths and measurable review rates.",
+      "Smarter intake flows that reduce triage time, route work faster, and keep human review where it matters.",
     span: "normal",
   },
   {
@@ -41,7 +41,7 @@ export const workItems: WorkItem[] = [
     category: "Infrastructure",
     types: ["APIs", "Data", "Monitoring"],
     outcome:
-      "Reliable cross-system consistency with alerting on failure domains.",
+      "Cross-system data flows built to stay consistent, with monitoring in place when something breaks.",
     span: "normal",
   },
   {
@@ -50,7 +50,7 @@ export const workItems: WorkItem[] = [
     category: "Technical growth",
     types: ["AEO", "Structured data", "CWV"],
     outcome:
-      "Cleaner information architecture for crawlers and answer engines without content bloat.",
+      "A stronger technical foundation for crawlability, answer engines, and site performance without unnecessary content clutter.",
     span: "normal",
   },
 ];

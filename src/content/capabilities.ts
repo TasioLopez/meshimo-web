@@ -10,7 +10,7 @@ export const capabilityClusters: CapabilityCluster[] = [
     id: "digital-experiences",
     title: "Digital experiences & frontend builds",
     overview:
-      "High-craft interfaces and marketing surfaces engineered for conversion, brand fidelity, and long-term maintainability.",
+      "Websites, landing pages, and product interfaces built to feel sharp, load fast, and stay easy to maintain.",
     items: [
       "Marketing and product websites, including CMS-backed builds.",
       "Landing pages and campaign surfaces with rigorous frontend discipline.",
@@ -23,7 +23,7 @@ export const capabilityClusters: CapabilityCluster[] = [
     id: "ai-workflows",
     title: "AI workflows & intelligent automation",
     overview:
-      "Practical AI and automation that remove repetition, accelerate decisions, and keep humans in control where it matters.",
+      "Practical AI and automation that reduce manual work, speed up repetitive decisions, and fit cleanly into your operations.",
     items: [
       "AI-assisted workflows for research, drafting, triage, and routing.",
       "Task automation across tools with explicit failure handling and auditability.",
@@ -36,7 +36,7 @@ export const capabilityClusters: CapabilityCluster[] = [
     id: "custom-tools",
     title: "Custom tools, platforms & software",
     overview:
-      "Bespoke software for operators: portals, dashboards, and line-of-business systems sized to how you actually work.",
+      "Internal tools, portals, dashboards, and custom software shaped around how your team actually works.",
     items: [
       "Internal tools that replace spreadsheets and ad-hoc scripts.",
       "Client-facing portals with authentication, roles, and audit trails.",
@@ -49,7 +49,7 @@ export const capabilityClusters: CapabilityCluster[] = [
     id: "integrations-data",
     title: "Integrations, data & technical infrastructure",
     overview:
-      "Reliable connections between platforms, clear data movement, and backend logic that holds up as volume grows.",
+      "Reliable connections between systems, with clean data flows and backend logic that can handle growth without becoming fragile.",
     items: [
       "API integrations, webhooks, and event-driven orchestration.",
       "Data pipelines and transformations with monitoring and error surfaces.",
@@ -62,7 +62,7 @@ export const capabilityClusters: CapabilityCluster[] = [
     id: "technical-growth",
     title: "Technical growth infrastructure",
     overview:
-      "The implementation layer for discoverability, answer engines, and speed, with acceptance criteria like any other engineering work.",
+      "The technical work behind discoverability, performance, structured data, and answer-engine readiness, implemented properly from the start.",
     items: [
       "Technical SEO: structure, internal linking, and indexation hygiene.",
       "AEO-oriented markup and content patterns machines can cite reliably.",

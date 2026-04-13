@@ -26,11 +26,12 @@ export function CapabilityArchitecture() {
         <motion.div variants={fadeUp} transition={transition}>
           <Eyebrow>Our services</Eyebrow>
           <h2 className="font-display mt-4 max-w-3xl text-[length:var(--text-display)] tracking-wide text-charcoal">
-            Service architecture
+            What we build
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            Five clusters cover the full stack Meshimo delivers: from customer-facing
-            surfaces to integrations, automation, and technical growth infrastructure.
+            Meshimo works across the full technical layer of a modern business: websites, product
+            interfaces, internal tools, automations, integrations, and the infrastructure that
+            keeps them reliable.
           </p>
         </motion.div>
 

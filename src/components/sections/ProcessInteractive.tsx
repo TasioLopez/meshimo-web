@@ -81,13 +81,14 @@ export function ProcessInteractive() {
         variants={staggerParent}
       >
         <motion.div variants={fadeUp} transition={transition}>
-          <Eyebrow>How Meshimo works</Eyebrow>
+          <Eyebrow>Process</Eyebrow>
           <h2 className="font-display mt-4 max-w-3xl text-[length:var(--text-display)] tracking-wide text-charcoal">
-            Process, end to end
+            How Meshimo works
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            A deliberate sequence from discovery through launch. Each stage names real
-            deliverables and how interface work stays tied to system work.
+            Every project moves from clear scope to live delivery. Strategy matters, but the work
+            is always grounded in real outputs: what gets designed, what gets built, how it
+            connects, and how it runs after launch.
           </p>
           <ProcessPhaseBar />
         </motion.div>

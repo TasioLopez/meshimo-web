@@ -18,8 +18,8 @@ export function SiteFooter() {
             <span className="font-display text-2xl tracking-wide text-bone">Meshimo</span>
           </Link>
           <p className="text-sm leading-relaxed text-bone/75">
-            Meshimo delivers technical execution for digital experiences, custom software,
-            AI-enabled workflows, and integrations, from first release through iteration.
+            Meshimo builds digital experiences, software, automations, and integrations for teams
+            that need strong execution behind the idea.
           </p>
         </div>
         <div className="flex flex-col gap-4 text-sm text-bone/80">
@@ -31,6 +31,12 @@ export function SiteFooter() {
           </Link>
           <Link href="#contact" className="transition hover:text-accent-cta">
             Contact
+          </Link>
+          <Link href="/terms" className="transition hover:text-accent-cta">
+            {en.footer.terms}
+          </Link>
+          <Link href="/privacy-policy" className="transition hover:text-accent-cta">
+            {en.footer.privacy_policy}
           </Link>
           <Link href="/cookie-policy" className="transition hover:text-accent-cta">
             {en.footer.cookie_policy}

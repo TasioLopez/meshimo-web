@@ -92,12 +92,11 @@ export function SelectedWork() {
         <motion.div variants={fadeUp} transition={transition}>
           <Eyebrow>Selected work</Eyebrow>
           <h2 className="font-display mt-4 max-w-3xl text-[length:var(--text-display)] tracking-wide text-charcoal">
-            Builds across surfaces and systems
+            Selected types of work
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">
-            Illustrative engagements showing breadth: customer-facing experiences,
-            internal platforms, AI-enabled workflows, and integration-heavy
-            infrastructure.
+            The work usually sits somewhere between interface, software, operations, and
+            automation. These examples show the range of what Meshimo is built to handle.
           </p>
         </motion.div>
 

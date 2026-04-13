@@ -18,7 +18,7 @@ export const processStages: ProcessStage[] = [
     id: "discovery",
     title: "Discovery and technical opportunity mapping",
     summary:
-      "Clarify outcomes, constraints, and the real surface area of the problem before choosing tools.",
+      "We start by clarifying the problem properly: what needs to improve, what systems are involved, where the friction sits, and what success should look like once the build is live.",
     bullets: [
       "Stakeholder interviews focused on workflows, failure modes, and ownership.",
       "Inventory of systems, data sources, and integration points.",
@@ -50,7 +50,7 @@ export const processStages: ProcessStage[] = [
     id: "scoping",
     title: "System scoping and solution design",
     summary:
-      "Translate goals into an architecture that can ship in phases without painting you into a corner.",
+      "Once the direction is clear, we define the shape of the solution: what belongs in scope now, what comes later, and how the technical setup should be structured to avoid rework.",
     bullets: [
       "Bounded contexts: what belongs in v1 versus later, with explicit tradeoffs.",
       "Data model sketch and API contracts between services and interfaces.",
@@ -74,7 +74,7 @@ export const processStages: ProcessStage[] = [
     id: "ux-flow",
     title: "UX, interface, and flow planning",
     summary:
-      "Shape journeys, states, and component behavior before pixels compete with logic.",
+      "Before development starts, we map the key journeys, states, and interactions so the interface is not just attractive, but clear, usable, and ready to be built properly.",
     bullets: [
       "Critical user paths with empty, loading, and error states.",
       "Information architecture across marketing and application surfaces.",
@@ -98,7 +98,7 @@ export const processStages: ProcessStage[] = [
     id: "build",
     title: "Build, integration, and logic",
     summary:
-      "Implement features with reviewable increments, integration tests, and operational hooks.",
+      "This is where the product takes shape. We build in reviewable steps, connect the right systems, and make sure the logic behind the experience is stable enough for real use.",
     bullets: [
       "Feature slices that can demo end-to-end early and often.",
       "Integration work with sandboxed credentials and replayable fixtures.",
@@ -122,7 +122,7 @@ export const processStages: ProcessStage[] = [
     id: "ai-enablement",
     title: "AI enablement, automation, and optimization",
     summary:
-      "Introduce models and automation where they reduce cost or latency, with evaluation and governance.",
+      "Where AI or automation adds real value, we introduce it in a controlled way: measurable, useful, and tied to the workflow instead of added for show.",
     bullets: [
       "Prompt and tool contracts versioned alongside application code.",
       "Evaluation sets for quality regression on changes.",
@@ -146,7 +146,7 @@ export const processStages: ProcessStage[] = [
     id: "launch",
     title: "Launch, support, and iteration",
     summary:
-      "Ship with runbooks, ownership, and a plan for the first weeks of real traffic.",
+      "Launch is not the end of the project. We make sure the system is documented, handed over cleanly, and ready for the first weeks of live usage and improvement.",
     bullets: [
       "Launch checklist: DNS, caching, backups, and rollback.",
       "Handover materials for internal operators.",
