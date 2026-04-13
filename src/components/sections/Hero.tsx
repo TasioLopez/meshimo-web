@@ -222,9 +222,9 @@ export function Hero() {
             <motion.p
               key={slide.id}
               className={cn(
-                "mt-8 w-full text-center font-display text-charcoal md:hidden",
+                "mt-8 mb-10 w-full text-center font-display text-charcoal md:mb-0 md:hidden",
                 longHeroWord ? "tracking-[0.03em]" : "tracking-[0.04em]",
-                "text-[length:clamp(2.75rem,11vw,4.25rem)] leading-[0.84]",
+                "text-[length:clamp(3.15rem,13.5vw,4.85rem)] leading-[0.84]",
               )}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -246,7 +246,7 @@ export function Hero() {
           ) : (
             <div
               ref={stageRef}
-              className="relative mt-4 h-[min(220px,48vw)] w-full max-w-5xl md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
+              className="relative mt-0 h-[min(220px,48vw)] w-full max-w-5xl md:mt-14 md:h-[340px] lg:max-w-6xl lg:h-[420px] xl:max-w-7xl xl:h-[450px]"
               aria-hidden
             >
               <motion.div
