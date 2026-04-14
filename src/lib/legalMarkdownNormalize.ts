@@ -1,3 +1,40 @@
+/** Period + space that starts a new sentence; skip periods in `B.V.`, `U.S.`, etc. */
+function isAbbreviationPeriod(rest: string, dotIdx: number): boolean {
+  if (rest[dotIdx] !== ".") return false;
+  if (rest.slice(Math.max(0, dotIdx - 3), dotIdx + 1) === "B.V.") return true;
+  if (rest.slice(Math.max(0, dotIdx - 3), dotIdx + 1) === "U.S.") return true;
+  if (rest.slice(Math.max(0, dotIdx - 4), dotIdx + 1) === "Ltd.") return true;
+  return false;
+}
+
+/**
+ * No colon in clause: use first sentence as the subsection title (matches Article 1 style),
+ * remainder as normal body text.
+ */
+function splitNoColonClauseHeadingBody(merged: string): { heading: string; body: string } {
+  const m = merged.match(/^(\d+\.\d+)\s+(.+)$/);
+  if (!m) return { heading: merged, body: "" };
+  const num = m[1];
+  const rest = m[2];
+  let i = 0;
+  while (i < rest.length) {
+    const idx = rest.indexOf(". ", i);
+    if (idx === -1) break;
+    if (isAbbreviationPeriod(rest, idx)) {
+      i = idx + 2;
+      continue;
+    }
+    const after = rest[idx + 2];
+    if (after && /[A-Z]/.test(after)) {
+      const firstSentence = rest.slice(0, idx + 1).trim();
+      const remainder = rest.slice(idx + 2).trim();
+      return { heading: `${num} ${firstSentence}`, body: remainder };
+    }
+    i = idx + 2;
+  }
+  return { heading: merged, body: "" };
+}
+
 /**
  * Emit `###` heading line(s) and body as separate paragraphs so the whole clause is not one <h3>
  * (which would bold the entire block).
@@ -6,14 +43,12 @@ function pushNumberedSubsectionHeadingAndBody(
   block: string[],
   out: string[],
 ): void {
-  const firstLine = block[0].trim();
-  const tailJoined = block.slice(1).join(" ");
+  const mergedFull = block.join(" ").replace(/\s+/g, " ").trim();
 
-  const colonIdx = firstLine.indexOf(":");
+  const colonIdx = mergedFull.indexOf(":");
   if (colonIdx !== -1) {
-    const headPart = firstLine.slice(0, colonIdx + 1).trim();
-    const afterColonFirst = firstLine.slice(colonIdx + 1).trim();
-    const body = [afterColonFirst, tailJoined].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+    const headPart = mergedFull.slice(0, colonIdx + 1).trim();
+    const body = mergedFull.slice(colonIdx + 1).trim();
     out.push(`### ${headPart}`);
     if (body.length > 0) {
       out.push(body);
@@ -21,19 +56,11 @@ function pushNumberedSubsectionHeadingAndBody(
     return;
   }
 
-  const m = firstLine.match(/^(\d+\.\d+)\s+(.*)$/);
-  if (m) {
-    const restOfFirst = m[2].trim();
-    const body = [restOfFirst, tailJoined].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
-    out.push(`### ${m[1]}`);
-    if (body.length > 0) {
-      out.push(body);
-    }
-    return;
+  const { heading, body } = splitNoColonClauseHeadingBody(mergedFull);
+  out.push(`### ${heading}`);
+  if (body.length > 0) {
+    out.push(body);
   }
-
-  const merged = block.join(" ").replace(/\s+/g, " ").trim();
-  out.push(`### ${merged}`);
 }
 
 /**
