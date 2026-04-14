@@ -15,18 +15,17 @@ business operations as described below.
 
 ## 1. Who we are
 
-SOTAB B.V. is the controller responsible for the processing of personal data described in this
-Privacy Policy.
-SOTAB B.V.
-Goudse Rijweg 17
-3061 DA Rotterdam
-The Netherlands
-Chamber of Commerce number: 95623612
-VAT number: NL867210096B01
-For privacy-related questions or requests, you can contact us at:
-privacy@sotab.nl
-For general contact, you can also reach us at:
-contact@sotab.nl
+SOTAB B.V. is the controller responsible for the processing of personal data described in this Privacy Policy.
+
+- SOTAB B.V.
+- Goudse Rijweg 17
+- 3061 DA Rotterdam
+- The Netherlands
+- Chamber of Commerce number: 95623612
+- VAT number: NL867210096B01
+
+For privacy-related questions or requests, you can contact us at [privacy@sotab.nl](mailto:privacy@sotab.nl). For general contact, you can also reach us at [contact@sotab.nl](mailto:contact@sotab.nl).
+
 SOTAB B.V. does not currently have a Data Protection Officer.
 
 

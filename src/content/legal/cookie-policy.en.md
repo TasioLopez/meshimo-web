@@ -10,17 +10,16 @@ technologies on meshimo.com.
 
 ## 1. Who we are
 
-SOTAB B.V., trading as Meshimo, is responsible for the use of cookies and similar technologies
-on this website.
-SOTAB B.V.
-Goudse Rijweg 17
-3061 DA Rotterdam
-The Netherlands
-Chamber of Commerce number: 95623612
-VAT number: NL867210096B01
-For questions about this Cookie Policy, you can contact us at:
-privacy@sotab.nl
-contact@sotab.nl
+SOTAB B.V., trading as Meshimo, is responsible for the use of cookies and similar technologies on this website.
+
+- SOTAB B.V.
+- Goudse Rijweg 17
+- 3061 DA Rotterdam
+- The Netherlands
+- Chamber of Commerce number: 95623612
+- VAT number: NL867210096B01
+
+For questions about this Cookie Policy, you can contact us at [privacy@sotab.nl](mailto:privacy@sotab.nl) or [contact@sotab.nl](mailto:contact@sotab.nl).
 
 
 ## 2. What are cookies?

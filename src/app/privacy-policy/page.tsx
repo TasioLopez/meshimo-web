@@ -30,7 +30,7 @@ export default async function PrivacyPolicyPage() {
       <Container className="max-w-3xl">
         <article
           lang="en"
-          className="space-y-6 text-base leading-relaxed text-charcoal-soft"
+          className="legal-markdown text-base leading-relaxed text-charcoal-soft"
         >
           <LegalMarkdown markdown={markdown} />
         </article>

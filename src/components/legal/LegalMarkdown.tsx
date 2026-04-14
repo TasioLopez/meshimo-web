@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
+import { normalizeLegalDocumentMarkdown } from "@/lib/legalMarkdownNormalize";
 
 const components = {
   h1: ({ children }: { children?: ReactNode }) => (
@@ -11,9 +12,13 @@ const components = {
     </h2>
   ),
   h3: ({ children }: { children?: ReactNode }) => (
-    <h3 className="mt-6 font-semibold text-charcoal">{children}</h3>
+    <h3 className="mt-5 scroll-mt-24 border-b border-taupe-line/60 pb-2 font-sans text-base font-semibold leading-snug text-charcoal first:mt-0">
+      {children}
+    </h3>
   ),
-  p: ({ children }: { children?: ReactNode }) => <p>{children}</p>,
+  p: ({ children }: { children?: ReactNode }) => (
+    <p className="text-pretty">{children}</p>
+  ),
   ul: ({ children }: { children?: ReactNode }) => (
     <ul className="list-disc space-y-2 pl-6">{children}</ul>
   ),
@@ -40,8 +45,15 @@ const components = {
   ),
 } as const;
 
-export function LegalMarkdown({ markdown }: { markdown: string }) {
+type LegalMarkdownProps = {
+  markdown: string;
+  /** Merge soft-wrapped lines and promote `1.1`-style clauses to headings (general terms). */
+  normalize?: boolean;
+};
+
+export function LegalMarkdown({ markdown, normalize = true }: LegalMarkdownProps) {
+  const source = normalize ? normalizeLegalDocumentMarkdown(markdown) : markdown;
   return (
-    <ReactMarkdown components={components}>{markdown}</ReactMarkdown>
+    <ReactMarkdown components={components}>{source}</ReactMarkdown>
   );
 }
