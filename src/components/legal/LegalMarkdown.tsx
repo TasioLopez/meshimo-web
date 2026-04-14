@@ -17,7 +17,7 @@ const components = {
     </h3>
   ),
   p: ({ children }: { children?: ReactNode }) => (
-    <p className="text-pretty">{children}</p>
+    <p className="text-pretty font-normal">{children}</p>
   ),
   ul: ({ children }: { children?: ReactNode }) => (
     <ul className="list-disc space-y-2 pl-6">{children}</ul>
@@ -25,7 +25,9 @@ const components = {
   ol: ({ children }: { children?: ReactNode }) => (
     <ol className="list-decimal space-y-2 pl-6">{children}</ol>
   ),
-  li: ({ children }: { children?: ReactNode }) => <li>{children}</li>,
+  li: ({ children }: { children?: ReactNode }) => (
+    <li className="font-normal">{children}</li>
+  ),
   a: ({ href, children }: { href?: string; children?: ReactNode }) => (
     <a href={href} className="text-accent-cta underline-offset-2 hover:underline">
       {children}

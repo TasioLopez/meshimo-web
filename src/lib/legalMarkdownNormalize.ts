@@ -1,4 +1,42 @@
 /**
+ * Emit `###` heading line(s) and body as separate paragraphs so the whole clause is not one <h3>
+ * (which would bold the entire block).
+ */
+function pushNumberedSubsectionHeadingAndBody(
+  block: string[],
+  out: string[],
+): void {
+  const firstLine = block[0].trim();
+  const tailJoined = block.slice(1).join(" ");
+
+  const colonIdx = firstLine.indexOf(":");
+  if (colonIdx !== -1) {
+    const headPart = firstLine.slice(0, colonIdx + 1).trim();
+    const afterColonFirst = firstLine.slice(colonIdx + 1).trim();
+    const body = [afterColonFirst, tailJoined].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+    out.push(`### ${headPart}`);
+    if (body.length > 0) {
+      out.push(body);
+    }
+    return;
+  }
+
+  const m = firstLine.match(/^(\d+\.\d+)\s+(.*)$/);
+  if (m) {
+    const restOfFirst = m[2].trim();
+    const body = [restOfFirst, tailJoined].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+    out.push(`### ${m[1]}`);
+    if (body.length > 0) {
+      out.push(body);
+    }
+    return;
+  }
+
+  const merged = block.join(" ").replace(/\s+/g, " ").trim();
+  out.push(`### ${merged}`);
+}
+
+/**
  * Normalizes legal markdown extracted from PDFs so that:
  * - Numbered subsections like `1.1 SOTAB:` become `###` headings with merged soft-wrapped lines.
  * - Lettered list items `a.` … `b.` become markdown bullet lists with merged continuations.
@@ -57,8 +95,7 @@ export function normalizeLegalDocumentMarkdown(input: string): string {
         block.push(L);
         i++;
       }
-      const merged = block.join(" ").replace(/\s+/g, " ").trim();
-      out.push(`### ${merged}`);
+      pushNumberedSubsectionHeadingAndBody(block, out);
       continue;
     }
 
