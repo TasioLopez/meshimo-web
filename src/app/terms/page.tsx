@@ -77,8 +77,8 @@ export default async function TermsPage() {
 
         <p className="mt-12 text-sm text-charcoal/60">
           Questions about these terms? Contact{" "}
-          <Link href="mailto:contact@sotab.com" className="text-accent-cta underline-offset-2 hover:underline">
-            contact@sotab.com
+          <Link href="mailto:contact@sotab.nl" className="text-accent-cta underline-offset-2 hover:underline">
+            contact@sotab.nl
           </Link>
           .
         </p>

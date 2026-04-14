@@ -94,7 +94,7 @@ Netherlands.
 2.5 SOTAB’s VAT number is NL867210096B01.
 2.6 For formal legal notices under these General Terms and Conditions, the Client shall use the
 following email address unless SOTAB designates another address in writing:
-contact@sotab.com.
+contact@sotab.nl.
 
 
 ## Article 3. Applicability
@@ -1275,7 +1275,7 @@ law.
 33.6 Formal notices under the Agreement, including notices of default, termination notices, and
 other legally relevant communications, shall be given by email or by signed written
 communication sent to the contact details designated by the relevant Party.
-33.7 Formal notices to SOTAB shall be sent to contact@sotab.com, unless SOTAB has
+33.7 Formal notices to SOTAB shall be sent to contact@sotab.nl, unless SOTAB has
 designated another notice address in writing.
 33.8 Practical project communication, operational coordination, approvals relating to day-to-day
 execution, and comparable non-formal communications may take place by email or other
