@@ -7,15 +7,98 @@ function isAbbreviationPeriod(rest: string, dotIdx: number): boolean {
   return false;
 }
 
+function toTitleCase(words: string[]): string {
+  return words
+    .map((w) => {
+      if (/^[A-Z0-9.&/-]+$/.test(w)) return w;
+      if (/^\d+(\.\d+)?$/.test(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    })
+    .join(" ");
+}
+
+function deriveShortClauseTitle(rest: string): string {
+  const sentence = rest.split(". ")[0] ?? rest;
+  const clean = sentence
+    .replace(/[()]/g, " ")
+    .replace(/[^A-Za-z0-9.\s&/-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const match = clean.match(
+    /\b(is|are|shall|may|must|does|do|uses|means|includes|include|remains|remain|applies|apply|constitutes|constitute|provides|provide|entitled|entitle)\b/i,
+  );
+
+  const stop = new Set([
+    "the",
+    "a",
+    "an",
+    "this",
+    "these",
+    "those",
+    "any",
+    "all",
+    "such",
+    "for",
+    "of",
+    "under",
+    "to",
+    "in",
+    "on",
+    "with",
+    "by",
+    "and",
+    "or",
+    "that",
+  ]);
+
+  const pickWords = (s: string, min = 2, max = 5): string[] => {
+    const parts = s
+      .split(/\s+/)
+      .map((p) => p.trim())
+      .filter(Boolean);
+    const kept = parts.filter((p, idx) => idx === 0 || !stop.has(p.toLowerCase()));
+    const out = (kept.length >= min ? kept : parts).slice(0, max);
+    return out;
+  };
+
+  if (!match) {
+    const words = pickWords(clean, 2, 5);
+    return words.length > 0 ? toTitleCase(words) : "Clause";
+  }
+
+  const verbIdx = match.index ?? 0;
+  const pre = clean.slice(0, verbIdx).trim();
+  const post = clean.slice(verbIdx + match[0].length).trim();
+
+  const preWords = pickWords(pre, 1, 5);
+  const isEntityOnly =
+    preWords.length <= 2 &&
+    preWords.every((w) => /^[A-Z0-9.]+$/.test(w) || w.toLowerCase() === "sotab");
+
+  if (preWords.length >= 2 && !isEntityOnly) {
+    return toTitleCase(preWords);
+  }
+
+  const postLead = post.split(",")[0]?.trim() ?? post;
+  const postWords = pickWords(postLead, 2, 5);
+  if (postWords.length > 0) {
+    return toTitleCase(postWords);
+  }
+
+  const fallback = pickWords(clean, 2, 5);
+  return fallback.length > 0 ? toTitleCase(fallback) : "Clause";
+}
+
 /**
- * No colon in clause: use first sentence as the subsection title (matches Article 1 style),
- * remainder as normal body text.
+ * No colon in clause: synthesize a short label and keep the full clause text in body.
  */
 function splitNoColonClauseHeadingBody(merged: string): { heading: string; body: string } {
   const m = merged.match(/^(\d+\.\d+)\s+(.+)$/);
   if (!m) return { heading: merged, body: "" };
   const num = m[1];
   const rest = m[2];
+  let splitIdx = -1;
   let i = 0;
   while (i < rest.length) {
     const idx = rest.indexOf(". ", i);
@@ -26,13 +109,21 @@ function splitNoColonClauseHeadingBody(merged: string): { heading: string; body:
     }
     const after = rest[idx + 2];
     if (after && /[A-Z]/.test(after)) {
-      const firstSentence = rest.slice(0, idx + 1).trim();
-      const remainder = rest.slice(idx + 2).trim();
-      return { heading: `${num} ${firstSentence}`, body: remainder };
+      splitIdx = idx;
+      break;
     }
     i = idx + 2;
   }
-  return { heading: merged, body: "" };
+
+  const title = deriveShortClauseTitle(rest);
+  if (splitIdx === -1) {
+    return { heading: `${num} ${title}:`, body: rest };
+  }
+
+  const firstSentence = rest.slice(0, splitIdx + 1).trim();
+  const remainder = rest.slice(splitIdx + 2).trim();
+  const body = [firstSentence, remainder].filter(Boolean).join(" ").trim();
+  return { heading: `${num} ${title}:`, body };
 }
 
 /**
