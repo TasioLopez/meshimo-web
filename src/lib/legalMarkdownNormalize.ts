@@ -17,77 +17,110 @@ function toTitleCase(words: string[]): string {
     .join(" ");
 }
 
-function deriveShortClauseTitle(rest: string): string {
-  const sentence = rest.split(". ")[0] ?? rest;
-  const clean = sentence
-    .replace(/[()]/g, " ")
-    .replace(/[^A-Za-z0-9.\s&/-]/g, " ")
+function firstSentence(text: string): string {
+  let i = 0;
+  while (i < text.length) {
+    const idx = text.indexOf(". ", i);
+    if (idx === -1) break;
+    if (isAbbreviationPeriod(text, idx)) {
+      i = idx + 2;
+      continue;
+    }
+    return text.slice(0, idx + 1).trim();
+  }
+  return text.trim();
+}
+
+function trimGenericSuffix(phrase: string): string {
+  return phrase
+    .replace(/\bunder these General Terms and Conditions\b.*$/i, "")
+    .replace(/\bunder the Agreement\b.*$/i, "")
+    .replace(/\bin connection with the Agreement\b.*$/i, "")
+    .replace(/\bfor the relevant assignment\b.*$/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function cleanTitlePhrase(phrase: string): string {
+  let p = phrase
+    .replace(/^[\s,.-]+/, "")
     .replace(/\s+/g, " ")
     .trim();
 
-  const match = clean.match(
-    /\b(is|are|shall|may|must|does|do|uses|means|includes|include|remains|remain|applies|apply|constitutes|constitute|provides|provide|entitled|entitle)\b/i,
-  );
+  p = trimGenericSuffix(p);
+  p = p.replace(/^(the|any)\s+/i, "");
 
-  const stop = new Set([
-    "the",
-    "a",
-    "an",
-    "this",
-    "these",
-    "those",
-    "any",
-    "all",
-    "such",
-    "for",
-    "of",
-    "under",
-    "to",
-    "in",
-    "on",
-    "with",
-    "by",
-    "and",
-    "or",
-    "that",
-  ]);
-
-  const pickWords = (s: string, min = 2, max = 5): string[] => {
-    const parts = s
-      .split(/\s+/)
-      .map((p) => p.trim())
-      .filter(Boolean);
-    const kept = parts.filter((p, idx) => idx === 0 || !stop.has(p.toLowerCase()));
-    const out = (kept.length >= min ? kept : parts).slice(0, max);
-    return out;
-  };
-
-  if (!match) {
-    const words = pickWords(clean, 2, 5);
-    return words.length > 0 ? toTitleCase(words) : "Clause";
+  const words = p.split(/\s+/).filter(Boolean);
+  if (words.length > 7) {
+    p = words.slice(0, 7).join(" ");
   }
 
-  const verbIdx = match.index ?? 0;
-  const pre = clean.slice(0, verbIdx).trim();
-  const post = clean.slice(verbIdx + match[0].length).trim();
+  return p.trim();
+}
 
-  const preWords = pickWords(pre, 1, 5);
-  const isEntityOnly =
+function deriveShortClauseTitle(rest: string): string {
+  const sentenceRaw = firstSentence(rest);
+
+  // Clause-level overrides for legal readability in Article 2+.
+  const explicit: Array<{ re: RegExp; title: string }> = [
+    { re: /^The contracting party\b/i, title: "Contracting party" },
+    { re: /^SOTAB B\.V\. uses the trade name\b/i, title: "Trade name use" },
+    { re: /^SOTAB[’']s registered office\b/i, title: "Registered office" },
+    { re: /^SOTAB is registered with the Dutch Chamber of Commerce\b/i, title: "Chamber registration" },
+    { re: /^SOTAB[’']s VAT number\b/i, title: "VAT number" },
+    { re: /^For formal legal notices\b/i, title: "Formal legal notices" },
+    { re: /^If any provision\b/i, title: "Invalid provisions" },
+    { re: /^No general email exchange\b/i, title: "No amendment by informal communications" },
+    { re: /^Any terms or conditions of the Client\b/i, title: "Client terms do not override precedence" },
+  ];
+
+  for (const { re, title } of explicit) {
+    if (re.test(sentenceRaw)) return title;
+  }
+
+  let sentence = sentenceRaw.replace(/[()]/g, " ").replace(/\s+/g, " ").trim();
+
+  // Remove legal subordinate opener (only when comma-delimited).
+  sentence = sentence.replace(
+    /^(If|Unless|Where|When|While|Without prejudice to|To the extent that)\b[^,]*,\s*/i,
+    "",
+  );
+
+  const verbMatch = sentence.match(
+    /\b(is|are|shall|may|must|does|do|uses|means|includes|include|remains|remain|applies|apply|constitutes|constitute|provides|provide)\b/i,
+  );
+
+  if (!verbMatch) {
+    const cleaned = cleanTitlePhrase(sentence);
+    if (cleaned.length > 0) return toTitleCase(cleaned.split(/\s+/));
+    return "Clause";
+  }
+
+  const verbIdx = verbMatch.index ?? 0;
+  const pre = cleanTitlePhrase(sentence.slice(0, verbIdx));
+  const post = sentence.slice(verbIdx + verbMatch[0].length).trim();
+
+  // Prefer a meaningful subject phrase if available.
+  const preWords = pre.split(/\s+/).filter(Boolean);
+  const subjectLooksEntityOnly =
     preWords.length <= 2 &&
     preWords.every((w) => /^[A-Z0-9.]+$/.test(w) || w.toLowerCase() === "sotab");
 
-  if (preWords.length >= 2 && !isEntityOnly) {
+  if (preWords.length >= 2 && !subjectLooksEntityOnly) {
     return toTitleCase(preWords);
   }
 
-  const postLead = post.split(",")[0]?.trim() ?? post;
-  const postWords = pickWords(postLead, 2, 5);
-  if (postWords.length > 0) {
-    return toTitleCase(postWords);
+  // Otherwise derive from object phrase.
+  const postLead = post
+    .replace(/^(be\s+entitled\s+to|be\s+obliged\s+to|be\s+required\s+to|remain\s+responsible\s+for)\b/i, "")
+    .split(",")[0]
+    ?.trim() ?? post;
+  const cleanedPost = cleanTitlePhrase(postLead);
+  if (cleanedPost.length > 0) {
+    return toTitleCase(cleanedPost.split(/\s+/));
   }
 
-  const fallback = pickWords(clean, 2, 5);
-  return fallback.length > 0 ? toTitleCase(fallback) : "Clause";
+  return "Clause";
 }
 
 /**
